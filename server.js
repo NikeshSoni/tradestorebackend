@@ -18,6 +18,14 @@ mongoose.connect(process.env.MONGODB_URI , {
 .then(() => console.log('✅ Connected to MongoDB'))
 .catch((err) => console.error('❌ MongoDB connection error:', err));
 
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
+
+
 // Trade Schema
 const tradeSchema = new mongoose.Schema({
   type: {
@@ -260,9 +268,4 @@ app.use((req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
 
